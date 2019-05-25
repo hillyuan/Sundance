@@ -107,7 +107,7 @@ void writeTable(std::ostream& os, const Tabs& tab,
   { \
     if (test) \
     { \
-      TeuchosOStringStream omsg; \
+      std::ostringstream omsg; \
       omsg << msg; \
       Out::println(omsg.str());                 \
     } \
@@ -117,7 +117,7 @@ void writeTable(std::ostream& os, const Tabs& tab,
   { \
     if (test) \
     { \
-      TeuchosOStringStream omsg; \
+      std::ostringstream omsg; \
       omsg << msg; \
       Out::root() << omsg.str() << std::endl;                 \
     } \

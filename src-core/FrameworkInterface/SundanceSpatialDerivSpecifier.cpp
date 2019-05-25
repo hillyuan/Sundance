@@ -116,7 +116,7 @@ int SpatialDerivSpecifier::derivOrder() const
 
 std::string SpatialDerivSpecifier::toString() const 
 {
-  TeuchosOStringStream os;
+  std::ostringstream os;
   os << *this;
   return os.str();
 }

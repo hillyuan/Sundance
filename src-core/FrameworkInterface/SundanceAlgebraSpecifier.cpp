@@ -85,7 +85,7 @@ bool AlgebraSpecifier::operator<(const AlgebraSpecifier& other) const
 
 string AlgebraSpecifier::toString() const 
 {
-  TeuchosOStringStream os;
+  std::ostringstream os;
   os << *this;
   return os.str();
 }

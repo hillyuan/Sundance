@@ -2263,7 +2263,7 @@ string BasicSimplicialMesh::cellStr(int dim, const int* verts) const
 
 string BasicSimplicialMesh::cellToStr(int cellDim, int cellLID) const
 {
-  TeuchosOStringStream os;
+  std::ostringstream os;
 
   if (cellDim > 0)
   {
@@ -2294,7 +2294,7 @@ string BasicSimplicialMesh::cellToStr(int cellDim, int cellLID) const
 
 string BasicSimplicialMesh::printCells(int cellDim) const
 {
-  TeuchosOStringStream os;
+  std::ostringstream os;
 
   if (cellDim > 0)
   {

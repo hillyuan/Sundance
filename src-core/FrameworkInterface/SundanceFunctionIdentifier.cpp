@@ -85,7 +85,7 @@ int FunctionIdentifier::componentIndex() const
 
 string FunctionIdentifier::toString() const 
 {
-  TeuchosOStringStream os;
+  std::ostringstream os;
   os << *this;
   return os.str();
 }

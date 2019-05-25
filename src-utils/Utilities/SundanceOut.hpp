@@ -115,7 +115,7 @@ using Playa::Tabs;
 
 #define SUNDANCE_TRACE(e) \
 { \
-  TeuchosOStringStream omsg; \
+  std::ostringstream omsg; \
         omsg << e.what() << std::endl \
   << "caught in " << __FILE__ << ":" << __LINE__ << std::endl ; \
         throw std::runtime_error(TEUCHOS_OSTRINGSTREAM_GET_C_STR(omsg)); \
@@ -123,7 +123,7 @@ using Playa::Tabs;
 
 #define SUNDANCE_TRACE_MSG(e, msg)                      \
 { \
-  TeuchosOStringStream omsg; \
+  std::ostringstream omsg; \
         omsg << e.what() << std::endl \
   << "caught in " << __FILE__ << ":" << __LINE__ << std::endl ; \
   omsg << msg << std::endl; \
@@ -133,7 +133,7 @@ using Playa::Tabs;
 
 #define SUNDANCE_ERROR(msg) \
 { \
-  TeuchosOStringStream omsg; \
+  std::ostringstream omsg; \
         omsg << __FILE__ << ":" << __LINE__ << ": " \
        << ": " << msg; \
   const std::string &omsgstr = omsg.str(); \

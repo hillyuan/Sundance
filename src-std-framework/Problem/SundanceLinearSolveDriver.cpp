@@ -94,7 +94,7 @@ LinearSolveDriver::solve(const LinearSolver<double>& solver,
     /* deal with a failure to converge */
     if (state.finalState() != SolveConverged)
     {
-      TeuchosOStringStream ss;
+      std::ostringstream ss;
       ss << "Solve failed! state = "
          << state.stateDescription()
          << "\nmessage=" << state.finalMsg()

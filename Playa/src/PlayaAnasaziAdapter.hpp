@@ -56,6 +56,7 @@
 #include "Teuchos_RCP.hpp"
 
 #include "PlayaTabs.hpp"
+#include <set>
 
 namespace Anasazi 
 {

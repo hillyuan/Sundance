@@ -145,9 +145,9 @@ string Expr::toString() const
 {
   TimeMonitor t(outputTimer());
 
-	TeuchosOStringStream ss;
+    std::ostringstream ss;
 	ptr()->toText(ss, false);
-	return TEUCHOS_OSTRINGSTREAM_GET_C_STR(ss);
+	return ss.str().c_str();
 }
 
 

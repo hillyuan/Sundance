@@ -170,7 +170,7 @@ template <class PointerType> inline
 std::string Handle<PointerType>::description() const 
 {
   const Describable* d = dynamic_cast<const Describable*>(ptr_.get());
-  TeuchosOStringStream oss;
+  std::ostringstream oss;
 
   if (d!=0) oss << d->description();
   else oss << fallbackDescription();
@@ -182,7 +182,7 @@ template <class PointerType> inline
 std::string Handle<PointerType>::fallbackDescription() const
 {
   typedef typename ConstHandleTraits<PointerType>::NonconstType NC;
-  TeuchosOStringStream oss;
+  std::ostringstream oss;
 
   oss << "Handle[" << TypeNameTraits<NC>::name()
       << ", ptr=" << ptr_.get() << "]";

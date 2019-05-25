@@ -53,6 +53,7 @@
 #include "NOX_StatusTest_Generic.H" // base class
 #include "NOX_Common.H"		// class data element (vector)
 #include "Teuchos_RefCountPtr.hpp"
+#include <vector>
 
 namespace NOX {
 

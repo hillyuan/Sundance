@@ -139,7 +139,7 @@ public:
 
   /** */
   std::string name() const {
-    TeuchosOStringStream ss;
+    std::ostringstream ss;
     ss << "Poisson1D(basis=";
     basis_.print(ss);
     ss << ")";
@@ -210,7 +210,7 @@ public:
   /** */
   std::string name() const 
     {
-      TeuchosOStringStream ss;
+      std::ostringstream ss;
       ss << "Projection1D(basis=";
       basis_.print(ss);
       ss << ")";

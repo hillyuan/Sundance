@@ -45,6 +45,7 @@
 #ifndef _MSC_VER
 #include <sys/unistd.h>
 #endif
+#include <fstream>
 
 using Teuchos::Array;
 

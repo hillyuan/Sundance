@@ -58,7 +58,7 @@ string ExprBase::typeName() const
 
 string ExprBase::toString() const 
 {
-	TeuchosOStringStream ss;
+	std::ostringstream ss;
 	toText(ss, false);
-	return TEUCHOS_OSTRINGSTREAM_GET_C_STR(ss);
+	return ss.str().c_str();
 }

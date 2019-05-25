@@ -76,7 +76,7 @@ int RegionQuadCombo::getID(const RCP<CellFilterStub>& domain,
 
 string RegionQuadCombo::toString() const
 {
-  TeuchosOStringStream oss;
+  std::ostringstream oss;
   Tabs tabs;
 
   oss << "Integration Region" << std::endl;

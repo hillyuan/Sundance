@@ -53,7 +53,7 @@ string expand(const Expr& e)
   Tabs tab;
   Array<Array<Expr> > terms;
   SpectralPreprocessor::expandSpectral(e, terms);
-  TeuchosOStringStream os;
+  std::ostringstream os;
 
   os << std::endl << tab << "Terms: " << std::endl;
   for (int i=0; i<terms.size(); i++)

@@ -46,7 +46,7 @@
 #include "Teuchos_Array.hpp"
 #include <set>
 #include <algorithm>
-
+#include <iterator>
 
 
 namespace Sundance
