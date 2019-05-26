@@ -58,13 +58,7 @@
 #include "Teuchos_TimeMonitor.hpp"
 #include "SundanceObjectWithVerbosity.hpp"
 #include "SundanceCollectiveExceptionCheck.hpp"
-
-#ifdef _MSC_VER
-static double log2(double x)
-{  
-    return log(x)/log(2.0);  
-}
-#endif
+#include <cmath>
 
 using namespace Sundance;
 using namespace Teuchos;
@@ -2000,9 +1994,9 @@ void HNMesh3D::createLeafNumbering_sophisticated(){
 	// generate the space filling curve traversal for a given level and unit square
 	// and assign the coarsest cells to processors
 #ifdef _MSC_VER
-	int levelM = ::ceil( std::max<double>( std::max<double>( ::log2(_res_x) , ::log2(_res_y ) ) , ::log2(_res_z ) ) );
+	int levelM = ::ceil( std::max<double>( std::max<double>( std::log2(_res_x) , std::log2(_res_y ) ) , std::log2(_res_z ) ) );
 #else
-	int levelM = ::ceil( ::fmax( ::fmax( ::log2(_res_x) , ::log2(_res_y ) ) , ::log2(_res_z ) ) );
+	int levelM = ::ceil( ::fmax( ::fmax( std::log2(_res_x) , std::log2(_res_y ) ) , std::log2(_res_z ) ) );
 #endif
 	//int unitN = (int)::pow(2, levelM );
 	Array<int> vectX1(8), vectY1(8), vectZ1(8), vectX2(8), vectY2(8), vectZ2(8);

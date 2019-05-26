@@ -201,15 +201,9 @@ void FeketeTriangleQuadrature::getPoints(int order, Array<double>& wgt, Array<
 
 	else
 	{
-#ifndef TRILINOS_7
 		SUNDANCE_ERROR("symmetric Fekete quadrature rule order "
 				<< order <<
 				" for triangles not available");
-#else
-		SUNDANCE_ERROR7("symmetric Fekete quadrature rule order "
-				<< order <<
-				" for triangles not available");
-#endif
 	}
 
 	for (int i = 0; i < q.length(); i++)

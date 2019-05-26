@@ -178,12 +178,8 @@ void FeketeQuadrature::getAdaptedWeights(const CellType& cellType, int cellDim,
 			break;
 		}
 		default:
-#ifndef TRILINOS_7
 			SUNDANCE_ERROR ("getAdaptedWeights rule for ACI(Adaptive Cell Integration) not available for submaximal cell " << maxCellType << " in a triangle mesh")
 			;
-#else
-			SUNDANCE_ERROR7("getAdaptedWeights rule for ACI(Adaptive Cell Integration) not available for submaximal cell " << maxCellType << " in a triangle mesh");
-#endif
 		}
 		break;
 	}
@@ -198,22 +194,14 @@ void FeketeQuadrature::getAdaptedWeights(const CellType& cellType, int cellDim,
 			break;
 		}
 		default:
-#ifndef TRILINOS_7
 		SUNDANCE_ERROR ("getAdaptedWeights rule for ACI(Adaptive Cell Integration) not available for submaximal cell " << maxCellType << " in a triangle mesh")
 		;
-#else
-		SUNDANCE_ERROR7("getAdaptedWeights rule for ACI(Adaptive Cell Integration) not available for submaximal cell " << maxCellType << " in a triangle mesh");
-#endif
 		}
 		break;
 	}
 	default:
-#ifndef TRILINOS_7
 		SUNDANCE_ERROR("getAdaptedWeights rule for ACI(Adaptive Cell Integration) not available for cell type " << cellType)
 		;
-#else
-		SUNDANCE_ERROR7("getAdaptedWeights rule for ACI(Adaptive Cell Integration) not available for cell type " << cellType);
-#endif
 	}
 }
 

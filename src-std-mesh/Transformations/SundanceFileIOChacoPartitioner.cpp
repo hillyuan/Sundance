@@ -42,16 +42,10 @@
 
 #include "SundanceFileIOChacoPartitioner.hpp"
 #include "Teuchos_StrUtils.hpp"
-
-using namespace Sundance;
-using namespace Sundance;
+#include <fstream>
 
 using namespace Teuchos;
 using namespace Sundance;
-
-using std::ofstream;
-using std::ifstream;
-using std::endl;
 
 
 FileIOChacoPartitioner::FileIOChacoPartitioner(const std::string& filename,
@@ -67,7 +61,7 @@ void FileIOChacoPartitioner::writeGraph(const Mesh& mesh) const
   getNeighbors(mesh, neighbors, nEdges);
 
   std::string gf = filename_ + ".graph";
-  ofstream os(gf.c_str());
+  std::ofstream os(gf.c_str());
 
   os << neighbors.size() << " " << nEdges << std::endl;
 
@@ -85,7 +79,7 @@ void FileIOChacoPartitioner::writeGraph(const Mesh& mesh) const
 
 void FileIOChacoPartitioner::runChaco(int np) const 
 {
-  ofstream pf("User_Params");
+  std::ofstream pf("User_Params");
   pf << 
     "OUTPUT_ASSIGN=true\n"
     "PROMPT=false\n"
@@ -104,7 +98,7 @@ void FileIOChacoPartitioner::runChaco(int np) const
     "CUT_TO_HOP_COST=1.0\n"
     "RANDOM_SEED=12345\n" << std::endl;
 
-  ofstream chIn("chacoInput");
+  std::ofstream chIn("chacoInput");
   chIn << filename_ + ".graph\n" << filename_ + ".assign\n1\n100\n"
        << np << "\n1\nn" << std::endl;
 
@@ -139,7 +133,7 @@ void FileIOChacoPartitioner::getAssignments(const Mesh& mesh, int np,
   runChaco(np);
 
   std::string af = filename_ + ".assign";
-  ifstream is(af.c_str());
+  std::ifstream is(af.c_str());
 
   std::string line;
   Array<string> tokens;

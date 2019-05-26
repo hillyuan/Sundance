@@ -50,6 +50,8 @@
 #include "Teuchos_RefCountPtr.hpp"
 #include "Teuchos_FancyOStream.hpp"
 #include "PlayaMPIComm.hpp"
+#include <fstream>
+#include <sstream>
 
 using Playa::Out;
 using Playa::Tabs;
@@ -118,7 +120,7 @@ using Playa::Tabs;
   std::ostringstream omsg; \
         omsg << e.what() << std::endl \
   << "caught in " << __FILE__ << ":" << __LINE__ << std::endl ; \
-        throw std::runtime_error(TEUCHOS_OSTRINGSTREAM_GET_C_STR(omsg)); \
+        throw std::runtime_error((omsg).str().c_str()); \
 }
 
 #define SUNDANCE_TRACE_MSG(e, msg)                      \
@@ -127,7 +129,7 @@ using Playa::Tabs;
         omsg << e.what() << std::endl \
   << "caught in " << __FILE__ << ":" << __LINE__ << std::endl ; \
   omsg << msg << std::endl; \
-  throw std::runtime_error(TEUCHOS_OSTRINGSTREAM_GET_C_STR(omsg)); \
+  throw std::runtime_error((omsg).str().c_str()); \
 }
 
 
@@ -138,7 +140,7 @@ using Playa::Tabs;
        << ": " << msg; \
   const std::string &omsgstr = omsg.str(); \
   Teuchos::TestForException_break(omsgstr); \
-  throw std::runtime_error(TEUCHOS_OSTRINGSTREAM_GET_C_STR(omsg)); \
+  throw std::runtime_error((omsg).str().c_str()); \
 }
 
 

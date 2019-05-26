@@ -128,7 +128,7 @@ LinearSolveDriver::solve(const LinearSolver<double>& solver,
       
       /* If solve errors are fatal, throw an exception */
       TEUCHOS_TEST_FOR_EXCEPTION(solveFailureIsFatal(),
-        std::runtime_error, TEUCHOS_OSTRINGSTREAM_GET_C_STR(ss));
+        std::runtime_error, (ss).str().c_str());
 
       /* otherwise, return the state information */
       return state;
