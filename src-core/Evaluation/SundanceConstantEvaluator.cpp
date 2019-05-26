@@ -42,17 +42,11 @@
 #include "SundanceSubtypeEvaluator.hpp"
 #include "SundanceEvalManager.hpp"
 #include "SundanceSpatiallyConstantExpr.hpp"
-#include "SundanceSet.hpp"
 #include "PlayaTabs.hpp"
 #include "SundanceOut.hpp"
 
 using namespace Sundance;
-using namespace Sundance;
-
-using namespace Sundance;
 using namespace Teuchos;
-
-
 
 
 ConstantEvaluator::ConstantEvaluator(const SpatiallyConstantExpr* expr, 

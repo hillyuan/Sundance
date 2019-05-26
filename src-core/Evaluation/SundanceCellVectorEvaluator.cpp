@@ -43,7 +43,6 @@
 #include "SundanceEvalManager.hpp"
 #include "SundanceCellVectorExpr.hpp"
 #include "PlayaExceptions.hpp"
-#include "SundanceSet.hpp"
 #include "PlayaTabs.hpp"
 #include "SundanceOut.hpp"
 

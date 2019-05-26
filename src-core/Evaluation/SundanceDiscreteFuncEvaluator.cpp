@@ -46,7 +46,6 @@
 #include "SundanceSpatiallyConstantExpr.hpp"
 #include "SundanceSymbolicFuncElement.hpp"
 #include "SundanceDiscreteFuncElement.hpp"
-#include "SundanceSet.hpp"
 #include "PlayaTabs.hpp"
 #include "SundanceOut.hpp"
 

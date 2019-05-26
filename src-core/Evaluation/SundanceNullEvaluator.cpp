@@ -41,7 +41,6 @@
 
 #include "SundanceNullEvaluator.hpp"
 #include "SundanceEvalManager.hpp"
-#include "SundanceSet.hpp"
 #include "PlayaTabs.hpp"
 #include "SundanceOut.hpp"
 

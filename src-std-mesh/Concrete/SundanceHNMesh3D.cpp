@@ -1993,11 +1993,7 @@ void HNMesh3D::createLeafNumbering_sophisticated(){
 
 	// generate the space filling curve traversal for a given level and unit square
 	// and assign the coarsest cells to processors
-#ifdef _MSC_VER
-	int levelM = ::ceil( std::max<double>( std::max<double>( std::log2(_res_x) , std::log2(_res_y ) ) , std::log2(_res_z ) ) );
-#else
-	int levelM = ::ceil( ::fmax( ::fmax( std::log2(_res_x) , std::log2(_res_y ) ) , std::log2(_res_z ) ) );
-#endif
+	int levelM = ::ceil( std::fmax( std::fmax( std::log2(_res_x) , std::log2(_res_y ) ) , std::log2(_res_z ) ) );
 	//int unitN = (int)::pow(2, levelM );
 	Array<int> vectX1(8), vectY1(8), vectZ1(8), vectX2(8), vectY2(8), vectZ2(8);
 	vectX1[0] = 0; vectX1[1] = (int)::pow(2,levelM-1); vectX1[2] = 0; vectX1[3] = (int)::pow(2,levelM-1);
