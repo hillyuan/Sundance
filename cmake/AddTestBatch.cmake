@@ -5,7 +5,7 @@
 
 FUNCTION(ADD_TEST_BATCH TestList)
 
-   PARSE_ARGUMENTS(
+   CMAKE_PARSE_ARGUMENTS(
      #prefix
      PARSE
      #lists

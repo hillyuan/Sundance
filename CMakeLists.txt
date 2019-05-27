@@ -135,7 +135,7 @@ IF(Sundance_ENABLE_Python)
 ENDIF()
 
 #MESSAGE("adding ex-tut")
-TRIBITS_ADD_TEST_DIRECTORIES(examples)
+TRIBITS_ADD_EXAMPLE_DIRECTORIES(examples)
 
 
 #
