@@ -57,9 +57,6 @@ namespace Playa
 {
 class Tabs;
 using namespace Teuchos;
-  using std::cout;
-  using std::endl;
-  using std::cerr;
 
 /**
  * Class Out provides standardized access to fancy streams for writing

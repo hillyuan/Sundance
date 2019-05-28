@@ -156,12 +156,12 @@ namespace Playa
         Vector<Scalar> y = space_.createMember();
         x.zero();
         y.zero();
-        cout << "x = " << x << std::endl;
-        cout << "y = " << y << std::endl;
+        std::cout << "x = " << x << std::endl;
+        std::cout << "y = " << y << std::endl;
         randomizeVec(a);
         randomizeVec(b);
-        cout << "a = " << a << std::endl;
-        cout << "b = " << b << std::endl;
+        std::cout << "a = " << a << std::endl;
+        std::cout << "b = " << b << std::endl;
 
         /* do the operation elementwise */
         for (SequentialIterator<Scalar> i=space_.begin(); i!=space_.end(); i++)
@@ -172,8 +172,8 @@ namespace Playa
         /* do the operation with member functions */
         x = a + b ;
 
-        cout << "op   (a+b)=" << std::endl << x << std::endl;
-        cout << "loop (a+b)=" << std::endl << y << std::endl;
+        std::cout << "op   (a+b)=" << std::endl << x << std::endl;
+        std::cout << "loop (a+b)=" << std::endl << y << std::endl;
 	
         double err = (x-y).normInf();
 

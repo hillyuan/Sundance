@@ -214,7 +214,7 @@ int SundanceGlobal::init(int* argc, char*** argv)
     {
       if (MPIComm::world().getRank()==0)
       {
-        cout << "Simulation built using Sundance version "
+        std::cout << "Simulation built using Sundance version "
              << VersionString::number()
              << " (" << VersionString::date() << ")" << std::endl;
         exit(0);
@@ -234,7 +234,7 @@ int SundanceGlobal::init(int* argc, char*** argv)
            << std::endl;
       oss << "and is licensed under the BSD License" << std::endl;
       oss << std::endl;
-      cout << oss.str() << std::flush;
+      std::cout << oss.str() << std::flush;
     }
 
     MPIComm::world().synchronize();
@@ -248,7 +248,7 @@ int SundanceGlobal::init(int* argc, char*** argv)
       std::string myCommandName=((char**)(*argv))[0];
       std::string debugCmd = "ddd --gdb -x ~/.gdbinit " + myCommandName
         + " " + Teuchos::toString(pid) + " &";
-      cout << "launching " << debugCmd << std::endl;
+      std::cout << "launching " << debugCmd << std::endl;
       TEUCHOS_ASSERT_EQUALITY(0, system(debugCmd.c_str()));
       while (wait) {;}
     }
@@ -278,9 +278,9 @@ bool& SundanceGlobal::showStartupMessage()
 
 void SundanceGlobal::handleException(std::exception& e)
 {
-  cout << "Sundance detected exception: " << std::endl;
-  cout << e.what() << std::endl;
-  cout << "test FAILED" << std::endl;
+  std::cout << "Sundance detected exception: " << std::endl;
+  std::cout << e.what() << std::endl;
+  std::cout << "test FAILED" << std::endl;
   testStatus() = -1;
 }
 
@@ -324,19 +324,19 @@ bool SundanceGlobal:: passFailTest(double error, double tol)
   bool pass;
   if (MPIComm::world().getRank()==0)
   {
-    cout << "error norm = " << error << std::endl;
-    cout << "tolerance = " << tol << std::endl;
+    std::cout << "error norm = " << error << std::endl;
+    std::cout << "tolerance = " << tol << std::endl;
   }
   pass = checkTest(error, tol);
   if (MPIComm::world().getRank()==0)
   {
     if (pass)
     {
-      cout << "test PASSED" << std::endl;
+      std::cout << "test PASSED" << std::endl;
     }
     else
     {
-      cout << "test FAILED" << std::endl;
+      std::cout << "test FAILED" << std::endl;
     }
   }
   testStatus() = pass!=true;
@@ -352,22 +352,22 @@ bool SundanceGlobal:: passFailTest(const std::string& statusMsg,
   if (MPIComm::world().getRank()==0)
   {
 
-    cout << statusMsg << ": ";
-    if (status) cout << "true" << std::endl;
-    else cout << "false" << std::endl;
-    cout << "error norm = " << error << std::endl;
-    cout << "tolerance = " << tol << std::endl;
+    std::cout << statusMsg << ": ";
+    if (status) std::cout << "true" << std::endl;
+    else std::cout << "false" << std::endl;
+    std::cout << "error norm = " << error << std::endl;
+    std::cout << "tolerance = " << tol << std::endl;
   }
   pass = checkTest(error, tol);
   if (MPIComm::world().getRank()==0)
   {
     if (status && pass)
     {
-      cout << "test PASSED" << std::endl;
+      std::cout << "test PASSED" << std::endl;
     }
     else
     {
-      cout << "test FAILED" << std::endl;
+      std::cout << "test FAILED" << std::endl;
     }
   }
   testStatus() = pass!=true;
@@ -381,11 +381,11 @@ bool SundanceGlobal:: passFailTest(bool pass)
   {
     if (pass)
     {
-      cout << "test PASSED" << std::endl;
+      std::cout << "test PASSED" << std::endl;
     }
     else
     {
-      cout << "test FAILED" << std::endl;
+      std::cout << "test FAILED" << std::endl;
     }
   }
   testStatus() = pass!=true;

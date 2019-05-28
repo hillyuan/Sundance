@@ -113,8 +113,8 @@ int main(int argc, char** argv)
       Mesh mesh = mesher.getMesh();
       curve.setMesh(mesh);
 
-      cout << "Nr Points  "<<mesh.numCells(0) << endl;
-      cout << "My Rank is :" << myrank << endl;
+      std::cout << "Nr Points  "<<mesh.numCells(0) << endl;
+      std::cout << "My Rank is :" << myrank << endl;
    
     //WatchFlag watchMe("watch me"); 
     //watchMe.setParam("symbolic preprocessing", 0);

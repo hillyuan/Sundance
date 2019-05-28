@@ -130,11 +130,7 @@ namespace NOX {
     
         See addOp() and orOp() for details.
       */
-#ifdef TRILINOS_6
-      virtual StatusType checkStatusEfficiently(const NOX::Solver::Generic& problem, NOX::StatusTest::CheckType checkType);
-#else
       virtual StatusType checkStatus(const NOX::Solver::Generic& problem, NOX::StatusTest::CheckType checkType);
-#endif
 
       virtual StatusType getStatus() const;
 
