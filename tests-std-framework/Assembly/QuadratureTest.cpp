@@ -101,10 +101,10 @@ int main(int argc, char** argv)
 			int p = validFeketeTriOrders[i];
 			bool pass = FeketeTriangleQuadrature::test(p);
 			if (pass)
-				cerr << "order " << p << " PASSED" << std::endl;
+				std::cerr << "order " << p << " PASSED" << std::endl;
 			else
 			{
-				cerr << "order " << p << " FAILED" << std::endl;
+				std::cerr << "order " << p << " FAILED" << std::endl;
 				FeketeTriFailures.append(p);
 			}
 		}
@@ -112,36 +112,36 @@ int main(int argc, char** argv)
 
       if (tetFailures.size()>0) 
         {
-          cout << "failures detected for tets: orders " << tetFailures << std::endl;
-          cout << "tet tests FAILED" << std::endl;
+          std::cout << "failures detected for tets: orders " << tetFailures << std::endl;
+          std::cout << "tet tests FAILED" << std::endl;
           stat = -1;
         }
       else
         {
-          cout << "tet tests PASSED" << std::endl;
+          std::cout << "tet tests PASSED" << std::endl;
         }
 
       if (triFailures.size()>0) 
         {
-          cout << "failures detected for tris: orders " << triFailures << std::endl;
-          cout << "tri tests FAILED" << std::endl;
+          std::cout << "failures detected for tris: orders " << triFailures << std::endl;
+          std::cout << "tri tests FAILED" << std::endl;
           stat = -1;
         }
       else
         {
-          cout << "tri tests PASSED" << std::endl;
+          std::cout << "tri tests PASSED" << std::endl;
         }
 
 		if (FeketeTriFailures.size() > 0)
 		{
-			cout << "failures detected for Fekete tris: orders "
+			std::cout << "failures detected for Fekete tris: orders "
 					<< FeketeTriFailures << std::endl;
-			cout << "Fekete tri tests FAILED" << std::endl;
+			std::cout << "Fekete tri tests FAILED" << std::endl;
 			stat = -1;
 		}
 		else
 		{
-			cout << "Fekete tri tests PASSED" << std::endl;
+			std::cout << "Fekete tri tests PASSED" << std::endl;
 		}
 
 		}

@@ -157,7 +157,7 @@ int main(int argc, char** argv)
     /* Compare the R-mapped vector to the vector computed natively 
      * on the fine space */
     double err = (fxP1 - refinedX).norm2();
-    cout << "error |fine - R*coarse| = " << err << endl;
+    std::cout << "error |fine - R*coarse| = " << err << std::endl;
 
     
     double finalTol = 0.5;

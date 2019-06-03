@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
       for (int j=0; j<replSpace.numLocalElements(); j++)
         {
           
-          x[j] = 2.0*(drand48()-0.5);
+          x[j] = 2.0*((rand() / (RAND_MAX + 1.0)) -0.5);
           y1 = y1 + x[j] * vecs[j];
           Out::os() << "x[" << j << "]=" << x[j] << std::endl;
           Out::os() << "vecs[j]=" << vecs[j] << std::endl;

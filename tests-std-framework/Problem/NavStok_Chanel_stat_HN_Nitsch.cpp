@@ -133,8 +133,8 @@ int main(int argc, char** argv)
       /* Object needed for curve integral calculation */
       ParametrizedCurve curveIntegral = new ParamCurveIntegral(curve);
 
-      cout << "Nr Points  "<<mesh.numCells(0) << endl;
-      cout << "My Rank is :" << myrank << endl;
+      std::cout << "Nr Points  "<<mesh.numCells(0) << endl;
+      std::cout << "My Rank is :" << myrank << endl;
       
       // Create cell filters
       CellFilter interior = new MaximalCellFilter();
@@ -407,7 +407,7 @@ int main(int argc, char** argv)
                           -up[2]*ncx,
                               quad_c , curveIntegral);
       double c_D = 2.0*evaluateIntegral(mesh,FDragExpr)/(Umean*Umean*D);
-      cerr << "Drag: c_D(u,p) = " << c_D << endl << endl;
+      std::cerr << "Drag: c_D(u,p) = " << c_D << endl << endl;
       Sundance::passFailTest( ::fabs(c_D - 5.57) , 1.0);
 
       Expr Phix=chi;
@@ -434,7 +434,7 @@ int main(int argc, char** argv)
                           + up[2]*(dx*Phix+dy*Phiy),
                           quad_hi , curve);
       double c_D_Om = 2.0*evaluateIntegral(mesh,FDragExprOm)/(Umean*Umean*D);
-      cerr << "Drag: c_D_Om(u,p) = " << c_D_Om << endl << endl;
+      std::cerr << "Drag: c_D_Om(u,p) = " << c_D_Om << endl << endl;
       Sundance::passFailTest( ::fabs(c_D_Om - 5.57) , 1.0);
 
       Expr FLiftExpr = Integral(OnCurve,
@@ -445,7 +445,7 @@ int main(int argc, char** argv)
 
       double c_L = 2.0*evaluateIntegral(mesh,FLiftExpr)/(Umean*Umean*D);
 
-      cerr << "Lift: c_L(u,p) = " << c_L << endl << endl;
+      std::cerr << "Lift: c_L(u,p) = " << c_L << endl << endl;
       Sundance::passFailTest( ::fabs(c_L - 0.0107) , 0.2);
 
       Expr Psix=0.0;
@@ -472,7 +472,7 @@ int main(int argc, char** argv)
                           + up[2]*(dx*Psix+dy*Psiy),
                           quad_hi , curve);
       double c_L_Om = 2.0*evaluateIntegral(mesh,FLiftExprOm)/(Umean*Umean*D);
-      cerr << "Lift: c_L_Om(u,p) = " << c_L_Om << endl << endl;
+      std::cerr << "Lift: c_L_Om(u,p) = " << c_L_Om << endl << endl;
       Sundance::passFailTest( ::fabs(c_L_Om - 0.0107) , 0.2);
       
     }

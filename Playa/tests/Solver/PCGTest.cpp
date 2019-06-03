@@ -99,7 +99,7 @@ int main(int argc, char** argv)
     }
   catch(std::exception& e)
     {
-      cerr << "exception detected: " << e.what() << endl;
+      std::cerr << "exception detected: " << e.what() << endl;
       rtn = -1;
     }
 

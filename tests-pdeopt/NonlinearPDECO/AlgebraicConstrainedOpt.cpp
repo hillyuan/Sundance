@@ -168,7 +168,7 @@ int main(int argc, char** argv)
     }
 	catch(std::exception& e)
 		{
-      cerr << "main() caught exception: " << e.what() << endl;
+      std::cerr << "main() caught exception: " << e.what() << std::endl;
 		}
 	Sundance::finalize();
   return Sundance::testStatus(); 

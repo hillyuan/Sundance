@@ -107,12 +107,12 @@ int main(int argc, char *argv[])
     if (myRank==0) loadable(x)->setElement(0, 0);
     if (myRank==nProcs-1) loadable(x)->setElement(nProcs * nLocalRows - 1, 0.0);
 
-    cout << "x=" << std::endl;
-    x.print(cout);
+    std::cout << "x=" << std::endl;
+    x.print(std::cout);
       
     Vector<double> y = A*x;
-    cout << "y=" << std::endl;
-    y.print(cout);
+    std::cout << "y=" << std::endl;
+    y.print(std::cout);
 
     Vector<double> ans = A.range().createMember();
 
@@ -137,27 +137,27 @@ int main(int argc, char *argv[])
       
     //      cout << state << std::endl;
 
-    cout << "answer is " << std::endl;
-    ans.print(cout);
+    std::cout << "answer is " << std::endl;
+    ans.print(std::cout);
       
     double err = (x-ans).norm2();
-    cout << "error norm = " << err << std::endl;
+    std::cout << "error norm = " << err << std::endl;
 
     double tol = 1.0e-6;
     if (err > tol)
     {
-      cout << "User-defined preconditioner test FAILED" << std::endl;
+      std::cout << "User-defined preconditioner test FAILED" << std::endl;
       status = 1;
     }
     else
     {
-      cout << "User-defined preconditioner test PASSED" << std::endl;
+      std::cout << "User-defined preconditioner test PASSED" << std::endl;
       status = 0;
     }
   }
   catch(std::exception& e)
   {
-    cout << "Caught exception: " << e.what() << std::endl;
+    std::cout << "Caught exception: " << e.what() << std::endl;
     status = -1;
   }
 

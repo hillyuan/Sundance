@@ -208,7 +208,7 @@ int main(int argc, char** argv)
                        << " phi2=" << values2[0][q][n] 
                        << " |phi1-phi2|=" << fabs(values1[0][q][n]-values2[0][q][n]) 
                        << std::endl;
-                  if (fabs(values1[0][q][n]-values2[0][q][n]) > tol) { cout << "ERROR" << std::endl; numErrors++; }
+                  if (fabs(values1[0][q][n]-values2[0][q][n]) > tol) { std::cout << "ERROR" << std::endl; numErrors++; }
                 }
               }
             }

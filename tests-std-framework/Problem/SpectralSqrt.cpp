@@ -87,9 +87,9 @@ bool SpectralSqrt()
   Expr alpha = new SpectralExpr(sbasis, tuple(a0, a1, a2));
 
   /* Create a discrete space, and discretize the function 1.0 on it */
-  cout << "forming discrete space" << std::endl;
+  std::cout << "forming discrete space" << std::endl;
   DiscreteSpace discSpace(mesh, new Lagrange(1), sbasis, vecType);
-  cout << "forming discrete func" << std::endl;
+  std::cout << "forming discrete func" << std::endl;
   Expr u0 = new DiscreteFunction(discSpace, 0.5, "u0");
 
   /* We need a quadrature rule for doing the integrations */
@@ -98,7 +98,7 @@ bool SpectralSqrt()
   /* Now we set up the weak form of our equation. */
   Expr eqn = Integral(interior, v*(u*u-alpha), quad);
 
-  cout << "equation = " << eqn << std::endl;
+  std::cout << "equation = " << eqn << std::endl;
 
   /* There are no boundary conditions for this problem, so the
    * BC expression is empty */
@@ -129,7 +129,7 @@ bool SpectralSqrt()
 
   for (int i=0; i<vec.space().numLocalElements(); i++)
   {
-    cout << "u[" << i << "] = " << vec[i] << std::endl;
+    std::cout << "u[" << i << "] = " << vec[i] << std::endl;
   }
 
   double tol = 1.0e-12;

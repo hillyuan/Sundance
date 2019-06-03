@@ -117,7 +117,7 @@ bool HighOrderProjection2D()
   FunctionalEvaluator errInt(mesh, errExpr);
 
   double errorSq = errInt.evaluate();
-  cout << "error norm = " << sqrt(errorSq) << std::endl << std::endl;
+  std::cout << "error norm = " << sqrt(errorSq) << std::endl << std::endl;
 
   return SundanceGlobal::checkTest(sqrt(errorSq), 1.0e-11);
 }

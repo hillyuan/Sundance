@@ -68,7 +68,7 @@ int main(int argc, char** argv)
     int myRank = comm.getRank();
     int nProc = comm.getNProc();
     Out::os() << "Processor " << myRank 
-              << " of " << nProc << " checking in" << endl;
+              << " of " << nProc << " checking in" << std::endl;
 
     /* ---- END CODE BODY --- */
 
@@ -85,7 +85,7 @@ int main(int argc, char** argv)
   }
 	catch(std::exception& e) /* exception handling */
   {
-    cerr << "exception!" << endl;
+    std::cerr << "exception!" << std::endl;
     Sundance::handleException(e);
   }
   /* Finalization */

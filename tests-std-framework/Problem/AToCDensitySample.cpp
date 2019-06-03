@@ -78,14 +78,14 @@ bool AToCDensitySample()
 
       
   /* create a sampler */
-  cout << "making grid" << std::endl;
+  std::cout << "making grid" << std::endl;
   AToCPointLocator locator(mesh, interior, createVector(tuple(200, 200)));
       
   AToCDensitySampler sampler(locator, vecType);
 
   CToAInterpolator forceInterpolator(locator, F);
 
-  cout << "making points" << std::endl;
+  std::cout << "making points" << std::endl;
   /* create a bunch of particles */
   int nCells = mesh.numCells(2);
   int nPts = 15000;
@@ -115,10 +115,10 @@ bool AToCDensitySample()
     pos[2*i+1] = X[1];
   }
 
-  cout << "sampling..." << std::endl;
+  std::cout << "sampling..." << std::endl;
   Expr density = sampler.sample(createVector(pos), 1.0);
 
-  cout << "computing forces..." << std::endl;
+  std::cout << "computing forces..." << std::endl;
   forceInterpolator.interpolate(pos, f);
 
   double maxForceErr = 0.0;
@@ -131,9 +131,9 @@ bool AToCDensitySample()
     double df = ::fabs(fx - f[2*i]) + ::fabs(fy - f[2*i+1]);
     maxForceErr = std::max(maxForceErr, df);
   }
-  cout << "max force error = " << maxForceErr << std::endl;
+  std::cout << "max force error = " << maxForceErr << std::endl;
 
-  cout << "writing..." << std::endl;
+  std::cout << "writing..." << std::endl;
 
   /* Write the field in VTK format */
   FieldWriter w = new VTKWriter("Density2d");

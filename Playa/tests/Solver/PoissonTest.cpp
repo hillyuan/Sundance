@@ -192,7 +192,7 @@ int main(int argc, char *argv[])
   }
   catch(std::exception& e)
   {
-    cout << "Caught exception: " << e.what() << std::endl;
+    std::cout << "Caught exception: " << e.what() << std::endl;
     return -1;
   }
   return status;

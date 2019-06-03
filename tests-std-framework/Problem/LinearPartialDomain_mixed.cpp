@@ -145,7 +145,7 @@ int main(int argc, char** argv)
       ParameterXMLFileReader reader("aztec.xml");
 #endif
       ParameterList solverParams = reader.getParameters();
-      cout << "params = " << solverParams << std::endl;
+      std::cout << "params = " << solverParams << std::endl;
 
 
       LinearSolver<double> solver 

@@ -105,12 +105,12 @@ int main(int argc, char *argv[])
     if (myRank==0) loadable(x)->setElement(0, 0);
     if (myRank==nProcs-1) loadable(x)->setElement(nProcs * nLocalRows - 1, 0.0);
 
-    cout << "input is " << std::endl;
-    x.print(cout);
+    std::cout << "input is " << std::endl;
+    x.print(std::cout);
     Vector<double> b = A*x;
 
-    cout << "rhs is " << std::endl;
-    b.print(cout);
+    std::cout << "rhs is " << std::endl;
+    b.print(std::cout);
 
 
 
@@ -119,26 +119,26 @@ int main(int argc, char *argv[])
     LinearOperator<double> AInv = inverse(A, solver);
     Vector<double> ans = AInv * b;
 
-    cout << "answer is " << std::endl;
-    ans.print(cout);
+    std::cout << "answer is " << std::endl;
+    ans.print(std::cout);
       
     double err = (x-ans).norm2()/((double) nProcs * nLocalRows);
-    cout << "error norm = " << err << std::endl;
+    std::cout << "error norm = " << err << std::endl;
 
     if (err <= 1.0e-8)
     {
-      cout << "Belos poisson solve test PASSED" << std::endl;
+      std::cout << "Belos poisson solve test PASSED" << std::endl;
       return 0;
     }
     else
     {
-      cout << "Belos poisson solve test FAILED" << std::endl;
+      std::cout << "Belos poisson solve test FAILED" << std::endl;
       return 1;
     }
   }
   catch(std::exception& e)
   {
-    cout << "Caught exception: " << e.what() << std::endl;
+    std::cout << "Caught exception: " << e.what() << std::endl;
     return -1;
   }
 }

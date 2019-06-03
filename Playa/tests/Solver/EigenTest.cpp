@@ -152,18 +152,18 @@ int main(int argc, char *argv[])
     Out::os() << "error = " << err << endl;
     if (err < 0.01)
     {
-      cout << "Belos poisson solve test PASSED" << std::endl;
+      std::cout << "Belos poisson solve test PASSED" << std::endl;
       return 0;
     }
     else
     {
-      cout << "Belos poisson solve test FAILED" << std::endl;
+      std::cout << "Belos poisson solve test FAILED" << std::endl;
       return 1;
     }
   }
   catch(std::exception& e)
   {
-    cout << "Caught exception: " << e.what() << std::endl;
+    std::cout << "Caught exception: " << e.what() << std::endl;
     return -1;
   }
 }

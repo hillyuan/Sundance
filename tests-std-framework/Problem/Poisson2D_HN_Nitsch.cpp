@@ -96,8 +96,8 @@ int main(int argc, char** argv)
     watchMe.setParam("evaluation", 6);
 
 
-      cout << "Nr Points  "<<mesh.numCells(0) << endl;
-      cout << "My Rank is :" << myrank << endl;
+      std::cout << "Nr Points  "<<mesh.numCells(0) << std::endl;
+      std::cout << "My Rank is :" << myrank << std::endl;
       
       // Define the domains 
       CellFilter interior = new MaximalCellFilter();

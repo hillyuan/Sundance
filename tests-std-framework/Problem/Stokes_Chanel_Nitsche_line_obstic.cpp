@@ -108,8 +108,8 @@ int main(int argc, char** argv)
       ParametrizedCurve curve_line = curve.getPolygon(mesh, 0.01); 
       curve_line.writeToVTK("p_line.vtk");
 
-      cout << "Nr Points  "<<mesh.numCells(0) << endl;
-      cout << "My Rank is :" << myrank << endl;
+      std::cout << "Nr Points  "<<mesh.numCells(0) << std::endl;
+      std::cout << "My Rank is :" << myrank << std::endl;
 
       // Create cell filters
       CellFilter interior = new MaximalCellFilter();

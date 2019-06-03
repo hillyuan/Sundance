@@ -96,8 +96,8 @@ int main(int argc, char** argv)
       
       Mesh mesh = mesher.getMesh();
 
-      cout << "Nr Points  "<<mesh.numCells(0) << std::endl;
-      cout << "My Rank is :" << myrank << std::endl;
+      std::cout << "Nr Points  "<<mesh.numCells(0) << std::endl;
+      std::cout << "My Rank is :" << myrank << std::endl;
 
       // Create cell filters
       CellFilter interior = new MaximalCellFilter();
