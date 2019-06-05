@@ -160,7 +160,7 @@ template <class Scalar> inline
 LinearOperator<Scalar> operator+(const LinearOperator<Scalar>& A,
   const LinearOperator<Scalar>& B)
 {
-  return addedOperator(Array<LinearOperator<Scalar> >(tuple(A, B)));
+  return addedOperator(Array<LinearOperator<Scalar> >(Teuchos::tuple(A, B)));
 }
 
 }

@@ -57,7 +57,7 @@ using Sundance::List;
 
 
 #define TEST_THROW(code, passFail) \
-  TEUCHOS_TEST_THROW( code, std::exception, Out::os(), passFail)
+  TEUCHOS_TEST_THROW( code, std::runtime_error, Out::os(), passFail)
 
 #define TEST_NOTHROW(code, passFail) \
   TEUCHOS_TEST_NOTHROW( code, Out::os(), passFail)
